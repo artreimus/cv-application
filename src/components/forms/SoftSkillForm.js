@@ -3,7 +3,7 @@ import React from "react";
 export default function SoftSkillForm(props) {
   return (
     <div className="form-container">
-      <form className="form">
+      <form className="form" onSubmit={props.handleSoftSkillSubmit}>
         <input
           type="text"
           placeholder="Soft Skill"
@@ -13,6 +13,7 @@ export default function SoftSkillForm(props) {
           value={props.skills.softSkill}
           required
         />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

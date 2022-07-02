@@ -3,7 +3,7 @@ import React from "react";
 export default function ProjectForm(props) {
   return (
     <div className="form-container">
-      <form className="form">
+      <form className="form" onSubmit={props.handleProjectSubmit}>
         <input
           type="text"
           placeholder="Project Name"
@@ -13,7 +13,15 @@ export default function ProjectForm(props) {
           value={props.projectData.projectName}
           required
         />
-        <input
+        <textarea
+          placeholder="Project Description"
+          className="form--input"
+          name="projectDescription"
+          onChange={props.handleProjectChange}
+          value={props.projectData.projectDescription}
+          required
+        ></textarea>
+        {/* <input
           type="textarea"
           placeholder="Project Description"
           className="form--input"
@@ -21,7 +29,7 @@ export default function ProjectForm(props) {
           onChange={props.handleProjectChange}
           value={props.projectData.projectDescription}
           required
-        />
+        /> */}
         <button type="submit">Submit</button>
       </form>
     </div>

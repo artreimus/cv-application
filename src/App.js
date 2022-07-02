@@ -1,24 +1,33 @@
 import React, { Component } from "react";
-import Education from "./components/display/Education";
-import Personal from "./components/display/Personal";
 import EducationForm from "./components/forms/EducationForm";
 import HardSkillForm from "./components/forms/HardSkillForm";
 import SoftSkillForm from "./components/forms/SoftSkillForm";
 import LanguageForm from "./components/forms/LanguageForm";
 import ProjectForm from "./components/forms/ProjectForm";
+import Resume from "./components/Resume";
+import PersonalForm from "./components/forms/PersonalForm";
+import AboutForm from "./components/forms/AboutForm";
+
+//Canvas
+//Delete button
+//Scrolling
+//Local Storage
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      formData: {
+      personalData: {
         name: "",
+        title: "",
         email: "",
+        contactNumber: "",
+        address: "",
         linkedin: "",
         github: "",
-        contactNumber: "",
       },
+      aboutMe: "",
       educationData: {
         school: "Mapua University",
         degree: "Computer",
@@ -45,10 +54,17 @@ export default class App extends Component {
   handlePersonalChange = (event) => {
     const { name, value } = event.target;
     this.setState((prevState) => ({
-      formData: {
-        ...prevState.formData,
+      personalData: {
+        ...prevState.personalData,
         [name]: value,
       },
+    }));
+  };
+
+  handleAboutChange = (event) => {
+    const { name, value } = event.target;
+    this.setState((prevState) => ({
+      aboutMe: value,
     }));
   };
 
@@ -82,81 +98,108 @@ export default class App extends Component {
     }));
   };
 
+  handleEducationSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allEducations: this.state.allEducations.concat(this.state.educationData),
+      educationData: {
+        school: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+      },
+    }));
+  };
+
+  handleProjectSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allProjects: this.state.allProjects.concat(this.state.projectData),
+      projectData: {
+        projectName: "",
+        projectDescription: "",
+      },
+    }));
+  };
+
+  handleHardSkillSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allHardSkills: this.state.allHardSkills.concat(
+        this.state.skills.hardSkill
+      ),
+      skills: {
+        ...prevState.skills,
+        hardSkill: "",
+      },
+    }));
+  };
+
+  handleSoftSkillSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allSoftSkills: this.state.allSoftSkills.concat(
+        this.state.skills.softSkill
+      ),
+      skills: {
+        ...prevState.skills,
+        softSkill: "",
+      },
+    }));
+  };
+
+  handleLanguageSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allLanguages: this.state.allLanguages.concat(this.state.skills.language),
+      skills: {
+        ...prevState.skills,
+        language: "",
+      },
+    }));
+  };
+
   render() {
-    console.log(this.state.projectData);
+    console.log(this.state.personalData);
+    console.log(this.state.skills);
+
     return (
       <div>
-        <div className="form-container">
-          <form className="form">
-            <input
-              type="text"
-              placeholder="Name"
-              className="form--input"
-              name="name"
-              onChange={this.handlePersonalChange}
-              value={this.state.formData.name}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Email address"
-              className="form--input"
-              name="email"
-              onChange={this.handlePersonalChange}
-              value={this.state.formData.email}
-              required
-            />
-            <input
-              type="url"
-              placeholder="LinkedIn"
-              className="form--input"
-              name="linkedin"
-              onChange={this.handlePersonalChange}
-              value={this.state.formData.linkedin}
-              required
-            />
-            <input
-              type="url"
-              placeholder="GitHub"
-              className="form--input"
-              name="github"
-              onChange={this.handlePersonalChange}
-              value={this.state.formData.github}
-              required
-            />
-            <input
-              type="tel"
-              placeholder="Contact Number"
-              className="form--input"
-              name="contactNumber"
-              onChange={this.handlePersonalChange}
-              value={this.state.formData.contactNumber}
-              required
-            />
-          </form>
-        </div>
+        <PersonalForm
+          personalData={this.state.personalData}
+          handlePersonalChange={this.handlePersonalChange}
+        />
+        <AboutForm
+          aboutMe={this.state.aboutMe}
+          handleAboutChange={this.handleAboutChange}
+        />
         <EducationForm
           educationData={this.state.educationData}
           handleEducationChange={this.handleEducationChange}
+          handleEducationSubmit={this.handleEducationSubmit}
         />
         <HardSkillForm
           skills={this.state.skills}
           handleSkillsChange={this.handleSkillsChange}
+          handleHardSkillSubmit={this.handleHardSkillSubmit}
         />
         <SoftSkillForm
           skills={this.state.skills}
           handleSkillsChange={this.handleSkillsChange}
+          handleSoftSkillSubmit={this.handleSoftSkillSubmit}
         />
         <LanguageForm
           skills={this.state.skills}
           handleSkillsChange={this.handleSkillsChange}
+          handleLanguageSubmit={this.handleLanguageSubmit}
         />
         <ProjectForm
           projectData={this.state.projectData}
           handleProjectChange={this.handleProjectChange}
+          handleProjectSubmit={this.handleProjectSubmit}
         />
-        <Personal formData={this.state.formData} />
-        <Education educationData={this.state.educationData} />
+
+        <Resume data={this.state} />
       </div>
     );
   }

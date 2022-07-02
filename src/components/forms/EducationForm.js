@@ -3,7 +3,7 @@ import React from "react";
 export default function EducationForm(props) {
   return (
     <div className="form-container">
-      <form className="form">
+      <form className="form" onSubmit={props.handleEducationSubmit}>
         <input
           type="text"
           placeholder="School"
@@ -40,6 +40,7 @@ export default function EducationForm(props) {
           value={props.educationData.endDate}
           required
         />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
