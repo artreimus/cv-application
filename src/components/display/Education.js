@@ -2,11 +2,13 @@ import React from "react";
 
 export default function Education(props) {
   return (
-    <div className="">
-      <p className="">{props.education.school}</p>
-      <p className="">{props.education.degree}</p>
-      <p className="">{props.education.startDate}</p>
-      <p className="">{props.education.endDate}</p>
+    <div className="col">
+      <p>
+        <span>{props.education.startDate}</span> -{" "}
+        <span>{props.education.endDate}</span>
+      </p>
+      <p className="bold">{props.education.school}</p>
+      <p className="italic">{props.education.degree}</p>
     </div>
   );
 }

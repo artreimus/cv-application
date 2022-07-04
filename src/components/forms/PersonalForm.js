@@ -1,9 +1,15 @@
 import React from "react";
 
 export default function PersonalForm(props) {
+  let buttonClass = () => {
+    return props.displayPersonalData.name !== ""
+      ? "button__edit"
+      : "button__submit";
+  };
+
   return (
     <div className="form-container">
-      <form className="form">
+      <form className="form" onSubmit={props.handlePersonalSubmit}>
         <input
           type="text"
           placeholder="Name"
@@ -67,6 +73,9 @@ export default function PersonalForm(props) {
           value={props.personalData.github}
           required
         />
+        <button type="submit" className={buttonClass()}>
+          {props.displayPersonalData.name !== "" ? "Edit" : "Submit"}
+        </button>
       </form>
     </div>
   );

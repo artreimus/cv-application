@@ -7,7 +7,7 @@
 }
 
 :root {
-  --bg-body: #639;
+  --bg-body: rgb(216, 216, 216);
   --bg-form: #ffffff;
 }
 
@@ -20,6 +20,7 @@ body {
   margin: 0;
   background-color: var(--bg-body);
   font-family: "Inter", sans-serif;
+  padding: 1rem 0 0 0;
 }
 
 textarea {
@@ -32,8 +33,7 @@ textarea {
 }
 
 .form-container {
-  /* height: 100vh; */
-  padding: 20px;
+  padding: 0 10px 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,11 +42,12 @@ textarea {
 
 .form {
   background-color: var(--bg-form);
-  padding: 3.1em;
+  padding: 1.5em;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
 }
 
@@ -58,6 +59,10 @@ textarea {
   border: 1px solid gray;
   padding: 5px;
   font-family: "Inter", sans-serif;
+}
+
+.textarea {
+  width: 100%;
 }
 
 fieldset {
@@ -114,14 +119,98 @@ input[type="radio"]:checked + label {
   margin-right: 10px;
 }
 
+/* Resume */
+
+/* Generic */
+
 .resume {
   background-color: white;
+  font-size: 0.9rem;
+  padding: 1em 2em;
+  line-height: 1.4;
+  overflow: auto;
+  word-wrap: break-word;
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
+  /* Later: Declare font here */
 }
 
+.table {
+  max-width: 100%;
+  table-layout: fixed;
+}
+
+.main__title {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.main__title > span {
+  margin-right: 0.15em;
+}
+
+.info {
+  margin-bottom: 0.3em;
+}
+
+.divider {
+  border-width: 2px;
+  max-width: 90%;
+  border-style: solid;
+  border-color: inherit;
+  margin-bottom: 0.3em;
+}
+
+.justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: #6eff8e;
+  border: none;
+  color: black;
+  padding: 0.7em 1.8em;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #18ff4a;
+}
+
+.button__edit {
+  background-color: #fdff6e;
+}
+
+.button__edit:hover {
+  background-color: #ffe600;
+}
+
+/* Header */
 .header {
   background-color: rgb(50, 87, 255);
-  padding: 1em 2em;
   color: white;
+  padding: 1em 2em;
+  margin-bottom: 0.5em;
 }
 
 .personal__info--header {
@@ -129,29 +218,83 @@ input[type="radio"]:checked + label {
   text-transform: uppercase;
 }
 
-.personal__info--name {
+.user__name {
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
-.personal__info--title {
-  font-size: 2rem;
+.user__title {
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
+.personal__info > .divider {
+  margin: 0.5em 0;
+}
+
 .personal__info--main {
+  width: 100%;
 }
 
-.info {
-  font-size: 1rem;
+table {
+  table-layout: fixed;
+  width: 100%;
 }
 
-.info {
-  margin-bottom: 0.3em;
-  line-height: 1.4;
+td {
+  vertical-align: text-top;
+  text-align: start;
+}
+
+tr > .bold {
+  width: 80px;
+}
+
+.table__title {
+  margin-right: 100rem;
 }
 
 .info > span {
   font-weight: 700;
 }
+
+/* Main */
+.main__list > li {
+  margin-left: 1em;
+}
+
+.main > .col,
+.col > .col {
+  margin-bottom: 0.5em;
+}
+
+/* Media Query */
+
+@media (min-width: 900px) {
+  body {
+    padding: 1rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .sidebar {
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  .resume {
+    width: 8.5in;
+  }
+}
+
+/* Media Queries
+- Forms
+- Font Size of user name
+- Font size of whole resume = 1rem 
+
+*/

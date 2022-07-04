@@ -13,7 +13,7 @@ export default function SoftSkillForm(props) {
           value={props.skills.softSkill}
           required
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

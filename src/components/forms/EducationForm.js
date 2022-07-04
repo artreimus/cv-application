@@ -40,7 +40,7 @@ export default function EducationForm(props) {
           value={props.educationData.endDate}
           required
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

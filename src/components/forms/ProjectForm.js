@@ -21,16 +21,7 @@ export default function ProjectForm(props) {
           value={props.projectData.projectDescription}
           required
         ></textarea>
-        {/* <input
-          type="textarea"
-          placeholder="Project Description"
-          className="form--input"
-          name="projectDescription"
-          onChange={props.handleProjectChange}
-          value={props.projectData.projectDescription}
-          required
-        /> */}
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

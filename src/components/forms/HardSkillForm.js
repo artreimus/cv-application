@@ -13,7 +13,7 @@ export default function HardSkillForm(props) {
           value={props.skills.hardSkill}
           required
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

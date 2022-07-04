@@ -9,11 +9,27 @@ export default function LanguageForm(props) {
           placeholder="Language"
           className="form--input"
           name="language"
-          onChange={props.handleSkillsChange}
-          value={props.skills.language}
+          onChange={props.handleLanguageChange}
+          value={props.languageData.language}
           required
         />
-        <button type="submit">Submit</button>
+        <select
+          name="proficiency"
+          className="form--input"
+          value={props.languageData.proficiency}
+          onChange={props.handleLanguageChange}
+          required
+        >
+          <option value="">Select Profiency</option>
+          <option value="Native or Bilingual Proficiency">
+            Native or Bilingual Proficiency
+          </option>
+          <option value="Full Professional Proficiency">
+            Full Professional Proficiency
+          </option>
+          <option value="Limited Proficiency">Limited Proficiency</option>
+        </select>
+        <button type="submit">Add</button>
       </form>
     </div>
   );
