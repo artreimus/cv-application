@@ -30,6 +30,7 @@ textarea {
 .col {
   display: flex;
   flex-direction: column;
+  display: relative;
 }
 
 .form-container {
@@ -49,6 +50,11 @@ textarea {
   align-items: center;
   width: 100%;
   box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.75);
+}
+
+.form--title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
 }
 
 .form--input {
@@ -160,7 +166,7 @@ input[type="radio"]:checked + label {
   max-width: 90%;
   border-style: solid;
   border-color: inherit;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
 }
 
 .justify {
@@ -193,7 +199,7 @@ button {
   transition-duration: 0.4s;
 }
 
-button:hover {
+.button__submit:hover {
   background-color: #18ff4a;
 }
 
@@ -205,12 +211,52 @@ button:hover {
   background-color: #ffe600;
 }
 
+.display__container {
+  position: relative;
+}
+
+.list__item {
+  position: relative;
+}
+
+.delete--btn {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: #ffffff;
+  opacity: 0;
+  padding: 0.3em 0.8em;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  font-size: 1.2rem;
+  background-color: red;
+}
+
+.delete__btn--skill {
+  top: 0%;
+  left: 25%;
+}
+
+.list__item > .delete--btn {
+  font-size: 0.8rem;
+}
+
+.display__container:hover .delete--btn {
+  opacity: 1;
+}
+
+.list__item:hover .delete--btn {
+  opacity: 1;
+}
+
 /* Header */
 .header {
   background-color: rgb(50, 87, 255);
   color: white;
   padding: 1em 2em;
   margin-bottom: 0.5em;
+  min-height: 100px;
 }
 
 .personal__info--header {
@@ -271,15 +317,20 @@ tr > .bold {
 
 /* Media Query */
 
+@media (min-width: 800px) {
+  .user__info {
+    max-width: 350px;
+  }
+
+  .personal__info--main {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 @media (min-width: 900px) {
   body {
     padding: 1rem;
-  }
-
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
   }
 
   .sidebar {
@@ -287,14 +338,25 @@ tr > .bold {
     overflow: scroll;
   }
 
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main__container {
+    justify-content: space-evenly;
+  }
+
   .resume {
     width: 8.5in;
+    min-height: 11in;
+  }
+
+  .user__name {
+    font-size: 2.5rem;
+  }
+  .main__col--one {
+    margin-right: 3em;
+    max-width: 500px;
   }
 }
-
-/* Media Queries
-- Forms
-- Font Size of user name
-- Font size of whole resume = 1rem 
-
-*/
