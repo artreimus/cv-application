@@ -4,6 +4,7 @@ export default function LanguageForm(props) {
   return (
     <div className="form-container" onSubmit={props.handleLanguageSubmit}>
       <form className="form">
+        <h3 className="form--title bold">Language</h3>
         <input
           type="text"
           placeholder="Language"
@@ -29,7 +30,9 @@ export default function LanguageForm(props) {
           </option>
           <option value="Limited Proficiency">Limited Proficiency</option>
         </select>
-        <button type="submit">Add</button>
+        <button type="submit" className="button__submit">
+          Add
+        </button>
       </form>
     </div>
   );

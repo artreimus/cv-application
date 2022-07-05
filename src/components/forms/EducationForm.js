@@ -4,6 +4,7 @@ export default function EducationForm(props) {
   return (
     <div className="form-container">
       <form className="form" onSubmit={props.handleEducationSubmit}>
+        <h3 className="form--title bold">Education</h3>
         <input
           type="text"
           placeholder="School"
@@ -23,24 +24,27 @@ export default function EducationForm(props) {
           required
         />
         <input
-          type="date"
-          placeholder="Start Date"
+          type=""
+          placeholder="Start Year"
           className="form--input"
           name="startDate"
+          minLength={4}
           onChange={props.handleEducationChange}
           value={props.educationData.startDate}
           required
         />
         <input
-          type="date"
-          placeholder="End Date"
+          type="number"
+          placeholder="End Year"
           className="form--input"
           name="endDate"
           onChange={props.handleEducationChange}
           value={props.educationData.endDate}
           required
         />
-        <button type="submit">Add</button>
+        <button type="submit" className="button__submit">
+          Add
+        </button>
       </form>
     </div>
   );

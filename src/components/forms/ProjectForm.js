@@ -4,6 +4,7 @@ export default function ProjectForm(props) {
   return (
     <div className="form-container">
       <form className="form" onSubmit={props.handleProjectSubmit}>
+        <h3 className="form--title bold">Project</h3>
         <input
           type="text"
           placeholder="Project Name"
@@ -21,7 +22,9 @@ export default function ProjectForm(props) {
           value={props.projectData.projectDescription}
           required
         ></textarea>
-        <button type="submit">Add</button>
+        <button type="submit" className="button__submit">
+          Add
+        </button>
       </form>
     </div>
   );

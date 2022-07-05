@@ -8,13 +8,13 @@ export default function About(props) {
   return (
     <div className="form-container">
       <form className="form" onSubmit={props.handleAboutSubmit}>
+        <h3 className="form--title bold">About Me</h3>
         <textarea
           placeholder="Project Description"
           className="form--input textarea"
           name="aboutMe"
           onChange={props.handleAboutChange}
           value={props.aboutMe}
-          required
         ></textarea>
         <button type="submit" className={buttonClass()}>
           {props.displayAboutMe !== "" ? "Edit" : "Submit"}

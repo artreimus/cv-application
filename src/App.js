@@ -9,12 +9,6 @@ import Resume from "./components/Resume";
 import PersonalForm from "./components/forms/PersonalForm";
 import AboutForm from "./components/forms/AboutForm";
 
-//Media Queries
-//Unique Key
-//Delete button
-//Conditional Rendering
-//Local Storage
-
 export default class App extends Component {
   constructor() {
     super();
@@ -27,47 +21,66 @@ export default class App extends Component {
         contactNumber: "(+639)287295730",
         address:
           "#383, Phase 4, Northern Hills, San Rafael, Tarlac City, Philippines",
-        linkedin: "linked.com/in/arthur-lechoncito",
-        github: "github.com/artreimus",
+        linkedin: "https://linkedin.com/in/arthur-lechoncito/",
+        github: "https://github.com/artreimus",
       },
-      aboutMe:
-        "I am a highly motivated Computer Engineering student who has proficient knowledge in the technological fields of embedded systems, web development, artificial intelligence, and Web 3.0. I am looking for a technology company where I could add value and join a strong team of developers where I could use my skills to help develop highly scalable enterprise-level applications.",
+      aboutMe: "",
       educationData: {
-        school: "Mapua University",
-        degree: "Computer Engineer",
-        startDate: "2018",
-        endDate: "2022",
+        school: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+        id: nanoid(),
       },
       projectData: {
-        projectName: "Tongue Print Biometric System",
-        projectDescription:
-          "The senior thesis at Mapua University requires students to publish a study on anovel research topic. My thesis partner and I created a biometric system that can recognize the users by scanning their tongues where the accuracy rate of the prototype was 90.33%, and our study won the second runner-up for best thesis in the CPE Department.",
+        projectName: "",
+        projectDescription: "",
+        id: nanoid(),
       },
       skills: {
-        hardSkill: "Soccer",
-        softSkill: "Cooking",
+        hardSkill: "",
+        softSkill: "",
+      },
+      hardSkillData: {
+        hardSkill: "",
+        id: nanoid(),
+      },
+      softSkillData: {
+        softSkill: "",
+        id: nanoid(),
       },
       languageData: {
-        language: "English",
+        language: "",
         proficiency: "",
+        id: nanoid(),
       },
 
       displayPersonalData: {
-        name: "",
-        title: "",
-        email: "",
-        contactNumber: "",
-        address: "",
-        linkedin: "",
-        github: "",
+        name: "Arthur Reimus D. Lechoncito",
+        title: "Computer Engineer",
+        email: "arthurlechoncito@gmail.com",
+        contactNumber: "(+639)287295730",
+        address:
+          "#383, Phase 4, Northern Hills, San Rafael, Tarlac City, Philippines",
+        linkedin: "https://linkedin.com/in/arthur-lechoncito/",
+        github: "https://github.com/artreimus",
       },
-      displayAboutMe: "",
+      displayAboutMe:
+        "I am a highly motivated Computer Engineering student who has proficient knowledge in the technological fields of embedded systems, web development, artificial intelligence, and Web 3.0. I am looking for a technology company where I could add value and join a strong team of developers where I could use my skills to help develop highly scalable enterprise-level applications.",
       allEducations: [
         {
           school: "Mapua University",
           degree: "Computer Engineer",
           startDate: "2018",
           endDate: "2022",
+          id: nanoid(),
+        },
+        {
+          school: "Holy Angel University",
+          degree: "Science Technology Engineering and Mathematics (STEM)",
+          startDate: "2016",
+          endDate: "2018",
+          id: nanoid(),
         },
       ],
       allProjects: [
@@ -75,46 +88,88 @@ export default class App extends Component {
           projectName: "Tongue Print Biometric System",
           projectDescription:
             "The senior thesis at Mapua University requires students to publish a study on anovel research topic. My thesis partner and I created a biometric system that can recognize the users by scanning their tongues where the accuracy rate of the prototype was 90.33%, and our study won the second runner-up for best thesis in the CPE Department.",
+          id: nanoid(),
         },
         {
           projectName: "Automated Greenhouse with a compost bin",
           projectDescription:
             "The Senior engineering design at Mapua University requires students to create a unique design circuit on an 8-bit microcontroller. I created a design circuit for an automated greenhouse with a compost bin that can monitor and automatically adjust the environment of the greenhouse and the compost bin. The system also collects data and saves it on its local storage and on the Internet of Things cloud. ",
+          id: nanoid(),
         },
         {
           projectName: "The Odin Project",
           projectDescription:
             "The Odin Project is an open-source coding curriculum that focuses on web development. The curriculum contained several exercises and projects, such as coding challenges and the creation of interactive websites. I have completed the front-end lessons and am currently taking the backend Javascript curriculum.",
+          id: nanoid(),
         },
       ],
       allHardSkills: [
-        "Embedded Systems",
-        "Front End Web Development",
-        "User Experience Design",
-        "Machine Learning",
-        "Computer Vision",
-        "Networking",
-        "Web 3 Research",
+        {
+          hardSkill: "Embedded Systems",
+          id: nanoid(),
+        },
+        {
+          hardSkill: "Front End Web Development",
+          id: nanoid(),
+        },
+        {
+          hardSkill: "User Experience Design",
+          id: nanoid(),
+        },
+        {
+          hardSkill: "Machine Learning",
+          id: nanoid(),
+        },
+        {
+          hardSkill: "Computer Vision",
+          id: nanoid(),
+        },
+        {
+          hardSkill: "Networking",
+          id: nanoid(),
+        },
+        {
+          hardSkill: "Web 3 Research",
+          id: nanoid(),
+        },
       ],
       allSoftSkills: [
-        "Entrepreneurship",
-        "Leadership and Management",
-        "Problem Solving",
-        "Time Management",
-        "Creativity",
+        {
+          softSkill: "Entrepreneurship",
+          id: nanoid(),
+        },
+        {
+          softSkill: "Leadership and Management",
+          id: nanoid(),
+        },
+        {
+          softSkill: "Problem Solving",
+          id: nanoid(),
+        },
+        {
+          softSkill: "Time Management",
+          id: nanoid(),
+        },
+        {
+          softSkill: "Creativity",
+          id: nanoid(),
+        },
       ],
       allLanguages: [
         {
           language: "English",
           proficiency: "Full Professional Proficiency",
+          id: nanoid(),
         },
         {
           language: "Filipino",
           proficiency: "Native or Bilingual Proficiency",
+          id: nanoid(),
         },
         {
           language: "Chinese",
           proficiency: "Limited Proficiency",
+          id: nanoid(),
         },
       ],
     };
@@ -131,9 +186,9 @@ export default class App extends Component {
   };
 
   handleAboutChange = (event) => {
-    const { value } = event.target;
+    const { name, value } = event.target;
     this.setState((prevState) => ({
-      aboutMe: value,
+      [name]: value,
     }));
   };
 
@@ -157,11 +212,21 @@ export default class App extends Component {
     }));
   };
 
-  handleSkillsChange = (event) => {
+  handleHardSkillChange = (event) => {
     const { name, value } = event.target;
     this.setState((prevState) => ({
-      skills: {
-        ...prevState.skills,
+      hardSkillData: {
+        ...prevState.hardSkillData,
+        [name]: value,
+      },
+    }));
+  };
+
+  handleSoftSkillChange = (event) => {
+    const { name, value } = event.target;
+    this.setState((prevState) => ({
+      softSkillData: {
+        ...prevState.softSkillData,
         [name]: value,
       },
     }));
@@ -217,6 +282,20 @@ export default class App extends Component {
     }));
   };
 
+  handleHardSkillSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allHardSkills: this.state.allHardSkills.concat(this.state.hardSkillData),
+    }));
+  };
+
+  handleSoftSkillSubmit = (event) => {
+    event.preventDefault();
+    this.setState((prevState) => ({
+      allSoftSkills: this.state.allSoftSkills.concat(this.state.softSkillData),
+    }));
+  };
+
   handleLanguageSubmit = (event) => {
     event.preventDefault();
     this.setState((prevState) => ({
@@ -228,38 +307,56 @@ export default class App extends Component {
     }));
   };
 
-  handleHardSkillSubmit = (event) => {
-    event.preventDefault();
+  handleEducationDelete = (event, id) => {
+    event.stopPropagation();
     this.setState((prevState) => ({
-      allHardSkills: this.state.allHardSkills.concat(
-        this.state.skills.hardSkill
+      allEducations: prevState.allEducations.filter(
+        (education) => education.id !== id
       ),
-      skills: {
-        ...prevState.skills,
-        hardSkill: "",
-      },
     }));
   };
 
-  handleSoftSkillSubmit = (event) => {
-    event.preventDefault();
+  handleProjectDelete = (event, id) => {
+    event.stopPropagation();
     this.setState((prevState) => ({
-      allSoftSkills: this.state.allSoftSkills.concat(
-        this.state.skills.softSkill
+      allProjects: prevState.allProjects.filter((project) => project.id !== id),
+    }));
+  };
+
+  handleHardSkillDelete = (event, id) => {
+    event.stopPropagation();
+    this.setState((prevState) => ({
+      allHardSkills: prevState.allHardSkills.filter(
+        (hardSkill) => hardSkill.id !== id
       ),
-      skills: {
-        ...prevState.skills,
-        softSkill: "",
-      },
+    }));
+  };
+
+  handleSoftSkillDelete = (event, id) => {
+    event.stopPropagation();
+    this.setState((prevState) => ({
+      allSoftSkills: prevState.allSoftSkills.filter(
+        (softSkill) => softSkill.id !== id
+      ),
+    }));
+  };
+
+  handleLanguageDelete = (event, id) => {
+    event.stopPropagation();
+    this.setState((prevState) => ({
+      allLanguages: prevState.allLanguages.filter(
+        (language) => language.id !== id
+      ),
     }));
   };
 
   render() {
     // console.log(this.state.personalData);
     console.log(this.state.displayPersonalData);
+    console.log(this.state.displayPersonalData.email);
 
     return (
-      <div className="row">
+      <div className="row main__container">
         <div className="col sidebar">
           <PersonalForm
             personalData={this.state.personalData}
@@ -278,14 +375,19 @@ export default class App extends Component {
             handleEducationChange={this.handleEducationChange}
             handleEducationSubmit={this.handleEducationSubmit}
           />
+          <ProjectForm
+            projectData={this.state.projectData}
+            handleProjectChange={this.handleProjectChange}
+            handleProjectSubmit={this.handleProjectSubmit}
+          />
           <HardSkillForm
-            skills={this.state.skills}
-            handleSkillsChange={this.handleSkillsChange}
+            hardSkillData={this.state.hardSkillData}
+            handleHardSkillChange={this.handleHardSkillChange}
             handleHardSkillSubmit={this.handleHardSkillSubmit}
           />
           <SoftSkillForm
-            skills={this.state.skills}
-            handleSkillsChange={this.handleSkillsChange}
+            softSkillData={this.state.softSkillData}
+            handleSoftSkillChange={this.handleSoftSkillChange}
             handleSoftSkillSubmit={this.handleSoftSkillSubmit}
           />
           <LanguageForm
@@ -293,13 +395,15 @@ export default class App extends Component {
             handleLanguageChange={this.handleLanguageChange}
             handleLanguageSubmit={this.handleLanguageSubmit}
           />
-          <ProjectForm
-            projectData={this.state.projectData}
-            handleProjectChange={this.handleProjectChange}
-            handleProjectSubmit={this.handleProjectSubmit}
-          />
         </div>
-        <Resume data={this.state} />
+        <Resume
+          data={this.state}
+          handleEducationDelete={this.handleEducationDelete}
+          handleProjectDelete={this.handleProjectDelete}
+          handleHardSkillDelete={this.handleHardSkillDelete}
+          handleSoftSkillDelete={this.handleSoftSkillDelete}
+          handleLanguageDelete={this.handleLanguageDelete}
+        />
       </div>
     );
   }

@@ -10,6 +10,7 @@ export default function PersonalForm(props) {
   return (
     <div className="form-container">
       <form className="form" onSubmit={props.handlePersonalSubmit}>
+        <h3 className="form--title bold">Personal</h3>
         <input
           type="text"
           placeholder="Name"
@@ -26,7 +27,6 @@ export default function PersonalForm(props) {
           name="title"
           onChange={props.handlePersonalChange}
           value={props.personalData.title}
-          required
         />
         <input
           type="email"
@@ -35,7 +35,6 @@ export default function PersonalForm(props) {
           name="email"
           onChange={props.handlePersonalChange}
           value={props.personalData.email}
-          required
         />
         <input
           type="tel"
@@ -44,7 +43,6 @@ export default function PersonalForm(props) {
           name="contactNumber"
           onChange={props.handlePersonalChange}
           value={props.personalData.contactNumber}
-          required
         />
         <input
           type="text"
@@ -53,7 +51,6 @@ export default function PersonalForm(props) {
           name="address"
           onChange={props.handlePersonalChange}
           value={props.personalData.address}
-          required
         />
         <input
           type="url"
@@ -62,7 +59,6 @@ export default function PersonalForm(props) {
           name="linkedin"
           onChange={props.handlePersonalChange}
           value={props.personalData.linkedin}
-          required
         />
         <input
           type="url"
@@ -71,7 +67,6 @@ export default function PersonalForm(props) {
           name="github"
           onChange={props.handlePersonalChange}
           value={props.personalData.github}
-          required
         />
         <button type="submit" className={buttonClass()}>
           {props.displayPersonalData.name !== "" ? "Edit" : "Submit"}
